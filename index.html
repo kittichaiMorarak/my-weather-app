@@ -15,8 +15,29 @@
         </form>
         <div id="weather-info-container" class="weather-info">
             <!-- ข้อมูลสภาพอากาศจะแสดงที่นี่ -->
+            <div id="current-weather">
+                <h2>ชื่อเมือง</h2>
+                <p id="description">คำอธิบาย: --</p>
+                <p id="temperature">อุณหภูมิ: --°C</p>
+            </div>
+            <div id="additional-info">
+                <p id="humidity">ความชื้น: --%</p>
+                <p id="wind-speed">ความเร็วลม: -- กม./ชม.</p>
+                <p id="pressure">ความกดอากาศ: -- hPa</p>
+            </div>
         </div>
     </div>
+    <script>
+        function updateBackground(temp) {
+            if (temp > 30) {
+                document.body.style.background = 'linear-gradient(to bottom, #ff7e5f, #feb47b)';
+            } else if (temp < 15) {
+                document.body.style.background = 'linear-gradient(to bottom, #74ebd5, #acb6e5)';
+            } else {
+                document.body.style.background = 'linear-gradient(to bottom, #a1c4fd, #c2e9fb)';
+            }
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

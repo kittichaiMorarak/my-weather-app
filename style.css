@@ -1,5 +1,5 @@
 body {
-    background: #f4f7f9;
+    background: #87CEEB; 
     color: #1e293b;
     font-family: 'Sarabun', sans-serif;
     display: flex;
@@ -7,9 +7,10 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    transition: background 1s ease;
 }
 .app-container {
-    background: white;
+    background: rgb(231, 145, 92);
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -38,8 +39,88 @@ h1 { color: #1d4ed8; }
     border-radius: 0.5rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s, transform 0.2s;
 }
-#search-form button:hover { background-color: #2563eb; }
+#search-form button:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+}
 .weather-info { margin-top: 1.5rem; min-height: 150px; }
 .error { color: #dc2626; }
+
+#current-weather {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 0.5rem; 
+    margin-bottom: 1rem;
+}
+#additional-info p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #475569;
+}
+#weather-icon {
+    width: 100px;
+    height: 100px;
+}
+
+#weather-info-container {
+    background-color: #E0F7FA; 
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    box-sizing: border-box; 
+    width: 100%; 
+    max-width: 600px; 
+}
+
+.forecast-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+.forecast-item {
+    background-color: rgba(173, 216, 230, 0.8); /* สีฟ้าโปร่งใส */
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    width: 120px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.5s ease forwards;
+}
+.forecast-item:nth-child(1) { animation-delay: 0.2s; }
+.forecast-item:nth-child(2) { animation-delay: 0.4s; }
+.forecast-item:nth-child(3) { animation-delay: 0.6s; }
+.forecast-item:nth-child(4) { animation-delay: 0.8s; }
+.forecast-item:nth-child(5) { animation-delay: 1s; }
+
+.forecast-item img {
+    width: 50px;
+    height: 50px;
+}
+
+.forecast-item p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
